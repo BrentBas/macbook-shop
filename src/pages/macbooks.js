@@ -1,17 +1,16 @@
 import * as React from "react"
-import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import Seo from "../components/seo"
 import NavBar from "../components/navbar"
 
-const IndexPage = () => {
+const MacbooksPage = () => {
   return(
     <div>
-        <Seo title="Home" />
+        <Seo title="Macbooks" />
         <NavBar></NavBar>
-        <h2>Home</h2>
+        <h2>Macbooks</h2>
     </div>
   );
 }
 
-export default IndexPage;
+export default MacbooksPage;

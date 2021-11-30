@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Macbook Shop`,
+    title: `Macbooks`,
     description: `Koop je favoriete Macbook in onze shop!`,
     author: `@gatsbyjs`,
     siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
