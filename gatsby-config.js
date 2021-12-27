@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
     title: `Macbooks`,
-    description: `Koop je favoriete Macbook in onze shop!`,
-    author: `@gatsbyjs`,
+    description: `Bekijk je favoriete Macbook op deze pagina!`,
+    author: `Brent Bastianen`,
     siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
   },
   plugins: [
@@ -16,6 +16,16 @@ module.exports = {
       },
     },
     `gatsby-transformer-sharp`,
+    {
+      resolve: "gatsby-source-wordpress",
+      options: {
+        /*
+         * De volledige URL van je Headless WordPress site's GraphQL API.
+         * Voorbeeld : "https://www.example-site.com/graphql"
+         */
+        url: "http://macbook-shop.local/graphql",
+      },
+    },
     `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,

@@ -1,15 +1,15 @@
 import * as React from "react"
 import { StaticImage } from "gatsby-plugin-image"
-import Seo from "../components/seo"
-import NavBar from "../components/navbar"
+import Layout from "../components/Layout"
+import { useStaticQuery, graphql } from 'gatsby'
 
 const AboutPage = () => {
-  return(
-    <div>
-        <Seo title="About" />
-        <NavBar></NavBar>
+  return (
+    <Layout pageTitle="about">
+      <div>
         <h2>About</h2>
-    </div>
+      </div>
+    </Layout>
   );
 }
 
