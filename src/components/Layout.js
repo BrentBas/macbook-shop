@@ -6,7 +6,9 @@ const Layout = ({ pageTitle, children }) => {
     return (
         <div>
             <Navbar pageTitle={pageTitle} />
-            <main>{children}</main>
+            <main>
+                {children}
+            </main>
             <Footer />
         </div>
     )

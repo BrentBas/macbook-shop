@@ -1,5 +1,4 @@
 import React from "react"
-import wrapper from "../homePage.module.css"
 
 const Footer = () => {
   return (

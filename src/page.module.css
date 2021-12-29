@@ -1,0 +1,66 @@
+:root {
+    --purple2: #5a5baf;
+    --white: #ffffff;
+    --purple: #8520FF;
+    --backgroundcolor: #CDDCE6;
+    --textcolor: #152864;
+    --black: #000000;
+  }
+
+.homeContainer{
+    padding-top: 3rem;
+    background-color: var(--white);
+    height: 100%;
+}
+
+.descriptionColHome{
+    color: var(--textcolor);
+    background-color: var(--backgroundcolor);
+    border-radius: 20px;
+    margin-top: 2rem;
+    width: 100%;
+}
+
+.homePaddingText{
+    padding-top: 2rem;
+    padding-left: 2rem;
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+}
+
+.homeImageStyle{
+    border-radius: 20px;
+    margin-top: 2rem;
+    width: 100%;
+    height: 72.5vh;
+}
+
+.heightHomeCol{
+    margin-top: 2rem;
+}
+
+
+.blueColorSingle{
+    background-color: var(--backgroundcolor);
+    width: 100%;
+    border-radius: 20px;
+    z-index: 1;
+    margin-bottom: 1rem;
+}
+
+.SingleMacbookImage{
+    border-radius: 20px;
+}
+
+.informationTextSingleMacbook h2{
+    text-align: left;
+    color: var(--textcolor);
+}
+
+.removeDecoration{
+    text-decoration: none;
+}
+
+.blueColorSingle :hover{
+    color: gray;
+}

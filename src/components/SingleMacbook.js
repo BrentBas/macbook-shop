@@ -1,17 +1,33 @@
 import React from "react"
 import { Link } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import Col from 'react-bootstrap/Col'
+import Row from 'react-bootstrap/Row'
+import { blueColorSingle, SingleMacbookImage, informationTextSingleMacbook, removeDecoration } from '../page.module.css'
 
 export const SingleMacbook = ({ macbook, slug }) => {
-  //const profile = getImage(macbook.MacbookMeta.image.localFile)
-  console.log(slug);
+  const image = getImage(macbook.MacbookMeta.image.localFile)
+
   return (
-    <Link to={String(slug)}>
-        <p>
-            prijs:
-          {macbook.MacbookMeta.specifications.price}
-        </p>
- 
+    <Link to={String(slug)} className={removeDecoration}>
+      <Row >
+        <table className={blueColorSingle}>
+          <tr>
+            <td>
+              <GatsbyImage
+                className={SingleMacbookImage}
+                image={image}
+                alt={macbook.MacbookMeta.altText}
+              />
+            </td>
+            <td className={informationTextSingleMacbook}>
+              <h2>
+                {macbook.title}
+              </h2>
+            </td>
+          </tr>
+        </table>
+      </Row>
     </Link>
   )
 }
