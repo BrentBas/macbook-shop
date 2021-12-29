@@ -2,11 +2,11 @@ import * as React from "react"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import Layout from "../components/Layout"
 import { graphql } from 'gatsby'
-import { homeContainer, descriptionColHome, homePaddingText, homeImageStyle, heightHomeCol } from '../page.module.css'
+import { homeContainer, descriptionColHome, homePaddingText, homeImageStyle, heightHomeCol, topRuimteHome } from '../page.module.css'
 import Container from "react-bootstrap/esm/Container"
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
-import SingleMacbook from '../components/SingleMacbook'
+import SingleMacbookHome from '../components/SingleMacbookHome'
 
 const IndexPage = ({ data: { wpPage: { homePage }, }, }) => {
   const image = getImage(homePage.bannerPicture.localFile)
@@ -23,7 +23,7 @@ const IndexPage = ({ data: { wpPage: { homePage }, }, }) => {
             </Col>
           </Row>
         </Container>
-        <Container>
+        <Container className={topRuimteHome}>
           <Row>
             <Col xs={12} md={6}>
               <GatsbyImage className={homeImageStyle}
@@ -33,9 +33,9 @@ const IndexPage = ({ data: { wpPage: { homePage }, }, }) => {
             </Col>
             <Col className={heightHomeCol} xs={12} md={6}>
               {homePage.featuredMacbooks.map(macbook => (
-                <Row>
-                  <div >
-                    <SingleMacbook
+                <Row key={macbook.id}>
+                  <div>
+                    <SingleMacbookHome
                       slug={`macbooks/${macbook.slug}`}
                       key={macbook.id}
                       macbook={macbook}
@@ -52,8 +52,6 @@ const IndexPage = ({ data: { wpPage: { homePage }, }, }) => {
 }
 
 export default IndexPage;
-
-// <Col className={heightHomeCol}></Col>
 
 export const HomeDataQuery = graphql`
     query{

@@ -1,25 +1,36 @@
 import * as React from "react"
-import { StaticImage } from "gatsby-plugin-image"
 import Layout from "../../components/Layout"
-import { useStaticQuery, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import SingleMacbook from "../../components/SingleMacbook"
+import SingleMacbookPage from "../../components/SingleMacbookPage"
+import { imageBannerMacbook, macbookRow, fullHeight, macbookRowSmallerWithColor, macbookRowTextPar, fullwidthmacbooks } from '../../page.module.css'
 
 const Macbooks = ({ data: { allWpMacbook: { edges: macbooksInfo }, wpPage: { MacbooksPage }, }, }) => {
-  const image = getImage(MacbooksPage.bannerImage.localFile)
+  const image = getImage(MacbooksPage.bannerImage?.localFile)
+
   return (
-    <Layout pageTitle="macbooks">
-      <GatsbyImage
-        image={image}
-        alt={MacbooksPage.bannerImage.localFile}
-      />
-      <div>
-        <h2 >{MacbooksPage.description}</h2>
-        <div />
-        <div>
-          {macbooksInfo.map(({ node: macbook }) => (
-            <SingleMacbook key={macbook.id} slug={macbook.slug} macbook={macbook} />
-          ))}
+    <Layout pageTitle="Macbooks">
+      <div className={fullHeight}>
+        <div className={macbookRow}>
+          <div className={macbookRowSmallerWithColor}>
+            <GatsbyImage
+              image={image}
+              alt={MacbooksPage.bannerImage?.altText}
+              className={imageBannerMacbook}
+            />
+            <div className={macbookRowTextPar}>
+              <h1>Alle Macbooks</h1>
+              <p >{MacbooksPage.description}</p>
+            </div>
+          </div>
+          <div />
+          <div>
+            {macbooksInfo.map(({ node: macbook }) => (
+              <div key={macbook.id} className={fullwidthmacbooks}>
+                <SingleMacbookPage key={macbook.id} slug={macbook.slug} macbook={macbook} />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </Layout>
@@ -36,7 +47,7 @@ export const MacbookDataquery = graphql`
         bannerImage {
           localFile {
             childImageSharp {
-              gatsbyImageData(placeholder: BLURRED, layout: FULL_WIDTH)
+              gatsbyImageData(placeholder: BLURRED, width: 550, height: 550,)
             }
           }
           altText
@@ -61,9 +72,8 @@ export const MacbookDataquery = graphql`
               localFile {
                 childImageSharp {
                   gatsbyImageData(
-                    placeholder: BLURRED
-                    quality: 100
-                    transformOptions: {grayscale: true}
+                    placeholder: BLURRED,
+                    width: 550, height: 550,
                   )
                 }
               }
@@ -72,6 +82,7 @@ export const MacbookDataquery = graphql`
           }
           slug
           id
+          title
         }
       }
     }

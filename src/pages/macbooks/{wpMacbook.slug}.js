@@ -2,17 +2,90 @@ import * as React from "react"
 import { graphql } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import Layout from "../../components/Layout"
+import { fullwidthDetail, DetailBasicInfo, fulldetailImage, centerdetailtext, paddingtopDetails } from '../../page.module.css'
+import Container from "react-bootstrap/esm/Container"
+import Col from 'react-bootstrap/Col'
+import Row from 'react-bootstrap/Row'
 
 const MacbookPage = ({ data: { wpMacbook: { MacbookMeta: macbook, screensizes: { nodes: screensizes }, }, }, }) => {
-    return (
-        <Layout pageTitle="macbook">
-            <div>
-                {macbook.description && (
-                    <h3>{macbook.description}</h3>
-                )}
-            </div>
-        </Layout>
-    )
+  const image = getImage(macbook.image.localFile);
+
+  const handleBoolean = () => {
+    if (macbook.specifications.touchId === true) {
+      return "Aanwezig";
+    }
+    else {
+      return "Niet aanwezig";
+    }
+  }
+  return (
+    <Layout pageTitle={macbook.officialName}>
+      <div className={fullwidthDetail}>
+        <div className={DetailBasicInfo}>
+          <h1>{macbook.officialName}</h1>
+          <h3>{macbook.description}</h3>
+        </div>
+        <div>
+          <GatsbyImage
+            image={image}
+            className={fulldetailImage}
+            alt={macbook.image?.altText}
+          />
+        </div>
+        <div className={paddingtopDetails}>
+          <Container>
+            <Row>
+              <Col>
+                <p className={centerdetailtext}>Releasedate: {macbook.specifications.releaseDate}</p>
+              </Col>
+              <Col>
+                <p className={centerdetailtext}>
+                  Price: {macbook.specifications.price}
+                </p>
+              </Col>
+              <Col>
+                <p className={centerdetailtext}>
+                  Operating system: {macbook.specifications.operatingSystem}
+                </p>
+              </Col>
+              <Col>
+                <p className={centerdetailtext}>
+                  Connector type: {macbook.specifications.connectorType}
+                </p>
+              </Col>
+            </Row>
+            <Row>
+              <Col>
+                <p className={centerdetailtext}>
+                  Color: {macbook.specifications.color}
+                </p>
+              </Col>
+              <Col>
+                <p className={centerdetailtext}>
+                  Chip: {macbook.specifications.chip}
+                </p>
+              </Col>
+              <Col>
+                <p className={centerdetailtext}>
+                  Touchid: {handleBoolean()}
+                </p>
+              </Col>
+              <Col>
+                <p className={centerdetailtext}>
+                  Beschikbare schermgroottes:
+                  {screensizes.map((screensize) => (
+                    <span key={screensize.name}>
+                      {screensize.name + " "}
+                    </span>
+                  ))}
+                </p>
+              </Col>
+            </Row>
+          </Container>
+        </div>
+      </div>
+    </Layout>
+  )
 }
 export default MacbookPage;
 
@@ -21,7 +94,7 @@ export const AllMacbookQuery = graphql`
         wpMacbook (id: { eq: $id }) {
             MacbookMeta {
               description
-              fieldGroupName
+              officialName
               specifications {
                 touchId
                 releaseDate
@@ -32,11 +105,10 @@ export const AllMacbookQuery = graphql`
                 chip
               }
               image {
-                sourceUrl
                 altText
                 localFile {
                   childImageSharp {
-                    gatsbyImageData(placeholder: BLURRED, height: 500, width: 500)
+                    gatsbyImageData(placeholder: BLURRED, height: 550, width: 550)
                   }
                 }
               }

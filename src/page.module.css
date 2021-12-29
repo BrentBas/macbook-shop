@@ -1,11 +1,12 @@
 :root {
-    --purple2: #5a5baf;
     --white: #ffffff;
-    --purple: #8520FF;
     --backgroundcolor: #CDDCE6;
+    --backgroundcolorhover: #f2f8fb;
     --textcolor: #152864;
     --black: #000000;
   }
+
+/* HomePage*/
 
 .homeContainer{
     padding-top: 3rem;
@@ -18,7 +19,6 @@
     background-color: var(--backgroundcolor);
     border-radius: 20px;
     margin-top: 2rem;
-    width: 100%;
 }
 
 .homePaddingText{
@@ -30,9 +30,12 @@
 
 .homeImageStyle{
     border-radius: 20px;
-    margin-top: 2rem;
     width: 100%;
-    height: 72.5vh;
+    height: calc(100% - 24px);
+}
+
+.topRuimteHome{
+    margin-top: 2rem;
 }
 
 .heightHomeCol{
@@ -48,11 +51,59 @@
     margin-bottom: 1rem;
 }
 
+.blueColorSingle :hover{
+    background-color: var(--backgroundcolorhover);
+}
+
+.blueColorSinglemacbooks{
+    background-color: var(--backgroundcolor);
+    width: 100%;
+    border-radius: 20px;
+    z-index: 1;
+    margin-bottom: 1rem;
+}
+
+.blueColorSinglemacbooks :hover{
+    background-color: var(--backgroundcolorhover);
+}
+
 .SingleMacbookImage{
     border-radius: 20px;
+    height: 100%;
+    width: 100%;
+}
+
+.informationTextSingleMacbook{
+    width: 50%;
+    color: var(--textcolor);
 }
 
 .informationTextSingleMacbook h2{
+    text-align: left;
+    color: var(--textcolor);
+}
+
+.informationTextSingleMacbook p{
+    text-align: left;
+    color: var(--textcolor);
+}
+
+.informationTextSingle{
+    width: 70%;
+    color: var(--textcolor);
+}
+
+.informationTextSingle div{
+    margin-left: 3rem;
+}
+
+.informationTextSingle h2{
+    text-align: left;
+    color: var(--textcolor);
+    font-size: clamp(1rem, 3vw, 5rem);
+}
+
+.informationTextSingle p{
     text-align: left;
     color: var(--textcolor);
 }
@@ -63,4 +114,114 @@
 
 .blueColorSingle :hover{
     color: gray;
+}
+
+/*Footer*/
+
+.footerPar{
+    padding-top: 1rem;
+    text-align: center;
+    color: var(--textcolor);
+}
+
+
+/* MacbookPage */
+
+.imageBannerMacbook{
+    height: 35vh;
+    width: 100%;    
+    border-radius: 20px 20px 0px 0px;
+}
+
+.macbookRow{
+    width: 100%;
+}
+
+
+.macbookRowSmaller{
+    color: var(--textcolor);
+    width: 90% !important;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.fullHeight{
+    height: 100% !important;
+}
+
+.macbookRowSmallerWithColor{
+    margin-top: 3rem;
+    border-radius: 20px;
+    background-color: var(--backgroundcolor);
+    color: var(--textcolor);
+    width: 90% !important;
+    margin-bottom: 3rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.macbookRowTextPar{
+    padding: 2rem 0rem 3rem 1rem;
+    width: 90%;
+}
+
+.tableData{
+    width: 30%;
+}
+
+.SingleMacbookImageMacbook{
+    border-radius: 20px;
+}
+
+.fullwidthmacbooks .row{
+    --bs-gutter-x: 0 !important;
+}
+
+/* DetailScherm */
+
+.fullwidthDetail{
+    width: 100%;
+    height: 100%;
+}
+
+.DetailBasicInfo{
+    width: 90%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3rem;
+    background-color: var(--backgroundcolor);
+    color: var(--textcolor);
+    padding: 3rem;
+    border-radius: 20px;
+}
+
+.fulldetailImage{
+    width: 90%;
+    display: block;
+    height: 40vh;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 20px;
+    margin-top: 2rem;
+}
+
+.bluedetailbackground{
+    background-color: var(--backgroundcolor);
+    width: 35vw;
+}
+
+.centerdetailtext{
+    text-align: center;
+    background-color: var(--backgroundcolor);
+    color: var(--textcolor);
+    padding: 3rem;
+    border-radius: 20px;
+    height: 8rem;
+}
+
+.paddingtopDetails{
+    padding-top: 2rem;
 }

@@ -1,9 +1,12 @@
 import React from "react"
+import { footerPar } from '../page.module.css'
 
 const Footer = () => {
+  let year = new Date().getFullYear();
+
   return (
     <div>
-        <h2>Footer</h2>
+      <p className={footerPar}>&copy; Brent Bastianen | Macbooks | {year} | AP Hogeschool</p>
     </div>
   )
 }
