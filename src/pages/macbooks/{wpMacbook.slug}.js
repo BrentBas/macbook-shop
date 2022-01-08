@@ -2,7 +2,7 @@ import * as React from "react"
 import { graphql } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import Layout from "../../components/Layout"
-import { fullwidthDetail, DetailBasicInfo, fulldetailImage, centerdetailtext, paddingtopDetails } from '../../page.module.css'
+import { fullwidthDetail, DetailBasicInfo, fulldetailImage, detailImageCenter, centerdetailtext, paddingtopDetails } from '../../page.module.css'
 import Container from "react-bootstrap/esm/Container"
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
@@ -25,7 +25,7 @@ const MacbookPage = ({ data: { wpMacbook: { MacbookMeta: macbook, screensizes: {
           <h1>{macbook.officialName}</h1>
           <h3>{macbook.description}</h3>
         </div>
-        <div>
+        <div className={detailImageCenter}>
           <GatsbyImage
             image={image}
             className={fulldetailImage}
